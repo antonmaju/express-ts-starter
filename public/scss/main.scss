@@ -1,0 +1,15 @@
+@import 'normalize';
+
+@mixin font1 { 
+    font-family: 'Roboto', sans-serif 
+}
+
+body {
+    @include font1;
+    padding: 1em;
+}
+
+a, a:visited{
+   
+    color: blue;
+}
