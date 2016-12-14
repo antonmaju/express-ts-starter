@@ -20,5 +20,31 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", index);
 app.set("port", config.port);
 
+let port = config.port;
 let server = http.createServer(app);
-server.listen(config.port);
+server.listen(port);
+
+server.on("error", (err: any ) => {
+    if (err.syscall !== "listen") {
+        throw err;
+    }
+
+    switch (err.code) {
+        case "EACCES":
+            console.error(`Port ${port} requires elevated privileges`);
+            process.exit(1);
+            break;
+        case "EADDRINUSE":
+            console.error(`Port ${port} is already in use`);
+            process.exit(1);
+            break;
+        default:
+            throw err;
+    }
+});
+
+server.on("listening", () => {
+    let addr = server.address();
+
+    console.log(`Listening on ${port}`);
+});
