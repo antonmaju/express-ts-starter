@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
+    "clean": "rm app.js* && rm -rf public/scripts && rm -rf public/styles",
     "build": "webpack",
     "start": "node app.js"
   },
@@ -32,6 +33,7 @@
     "json-loader": "^0.5.4",
     "node-sass": "^4.0.0",
     "sass-loader": "^4.0.2",
+    "strip-loader": "^0.1.2",
     "style-loader": "^0.13.1",
     "ts-loader": "^1.3.2",
     "tslint": "^4.0.2",
