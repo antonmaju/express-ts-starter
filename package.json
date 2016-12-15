@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
+    "clean": "rm app.js* && rm -rf public/scripts && rm -rf public/styles",
     "build": "webpack",
     "start": "node app.js"
   },

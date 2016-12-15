@@ -10,5 +10,7 @@ let stripLoader = {
 
 /**add strip loader to client config (index 0)*/
 devConfig[0].module.loaders.push(stripLoader);
+delete devConfig[0].devtool;
+delete devConfig[1].devtool;
 
 module.exports = devConfig;
